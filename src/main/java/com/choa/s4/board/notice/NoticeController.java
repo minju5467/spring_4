@@ -26,6 +26,7 @@ public class NoticeController {
 		if(boardDTO != null) {
 			mv.setViewName("board/boardSelect");
 			mv.addObject("dto", boardDTO);
+			mv.addObject("board", "notice");
 		}else {
 			mv.setViewName("common/result");
 			mv.addObject("msg", "No Data");
