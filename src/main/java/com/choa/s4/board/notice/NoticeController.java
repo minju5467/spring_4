@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,14 +18,16 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	
+	//@RequestMapping(value = "noticeList")
+	@GetMapping("noticeList")
 	public ModelAndView getList(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<BoardDTO>  ar = noticeService.getList(pager);
 		
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
-		mv.setViewName(); 
+		System.out.println("Notice List");
+		//mv.setViewName(); 
 		return mv;
 	}
 
