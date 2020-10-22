@@ -1,4 +1,4 @@
-package com.choa.s4.board.notice;
+package com.choa.s4.board.qna;
 
 import java.util.List;
 
@@ -13,47 +13,49 @@ import com.choa.s4.board.BoardDTO;
 import com.choa.s4.util.Pager;
 
 @Controller
-@RequestMapping(value = "/notice/**")
-public class NoticeController {
-	@Autowired
-	private NoticeService noticeService;
+@RequestMapping("/qna/**")
+public class QnaController {
 	
-	@PostMapping("noticeWrite")
+	@Autowired
+	private QnaService qnaService;
+	
+	@PostMapping("qnaWrite")
 	public ModelAndView setInsert(BoardDTO boardDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = noticeService.setInsert(boardDTO);
+		int result = qnaService.setInsert(boardDTO);
 		String message="Write Fail";
 		if(result>0) {
 			message ="Write Success";
 		}
 		
 		mv.addObject("msg", message);
-		mv.addObject("path", "./noticeList");
+		mv.addObject("path", "./qnaList");
 		
 		mv.setViewName("common/result");
 		
 		return mv;
 	}
 	
-	@GetMapping("noticeWrite")
+	@GetMapping("qnaWrite")
 	public ModelAndView setInsert()throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("board/boardWrite");
-		mv.addObject("board", "notice");
+		mv.addObject("board", "qna");
 		return mv;
 	}
 	
-	//@RequestMapping(value = "noticeList")
-	@GetMapping("noticeList")
+	@GetMapping("qnaList")
 	public ModelAndView getList(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<BoardDTO>  ar = noticeService.getList(pager);
+		List<BoardDTO> ar = qnaService.getList(pager);
 		
-		mv.addObject("board", "notice");
+		BoardDTO boardDTO  = ar.get(0);
+		QnaDTO qnaDTO = (QnaDTO)boardDTO;
+		System.out.println(qnaDTO.getDepth());
+		mv.addObject("board", "qna");
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
-		System.out.println("Notice List");
-		mv.setViewName("board/boardList"); 
+		mv.setViewName("board/boardList");
 		return mv;
 	}
 
