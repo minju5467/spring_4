@@ -85,8 +85,10 @@
   
 
 
-  
+
+  <c:if test="${not empty member}">		  
   <a href="./${board}Write" class="btn btn-danger">Write</a>
+  </c:if>
   
 </div>
 
