@@ -63,13 +63,14 @@
 		emptyCheck();
 		if(idCheck && pwCheck && emptyCheckResult){
 			//중복체크했고, 사용가능한 ID
-			alert("OK");
-		}else {
-			//중복체크를 안했거나, 사용불가능한 ID
-			alert("No");
+			$("#frm").submit();
 		}
+		//else {
+			//중복체크를 안했거나, 사용불가능한 ID
+		//	alert("No");
+		//}
 		
-		//$("#frm").submit();
+		
 	});
 	
 	//********** empty check *********
