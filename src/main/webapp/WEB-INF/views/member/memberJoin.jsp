@@ -39,12 +39,14 @@
 	    
 	   <div class="form-group">
 	      <label for="name">Name:</label>
-	      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+	      <input type="text" class="form-control empty" id="name" placeholder="Enter name" name="name">
+	      <div class="emptyResult"></div>
 	    </div>
 	    
 	   <div class="form-group">
 	      <label for="email">Email:</label>
-	      <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email">
+	      <input type="text" class="form-control empty" id="email" placeholder="Enter Email" name="email">
+	      <div class="emptyResult"></div>
 	    </div>
 	    
 	    <input type="button" value="Join" class="btn btn-default" id="join">
@@ -55,9 +57,11 @@
 <script type="text/javascript">
 	var idCheck=false;
 	var pwCheck=false;
+	var emptyCheckResult = true;
 
 	$("#join").click(function() {
-		if(idCheck && pwCheck){
+		emptyCheck();
+		if(idCheck && pwCheck && emptyCheckResult){
 			//중복체크했고, 사용가능한 ID
 			alert("OK");
 		}else {
@@ -67,6 +71,22 @@
 		
 		//$("#frm").submit();
 	});
+	
+	//********** empty check *********
+	function emptyCheck() {
+		emptyCheckResult=true;
+		$(".emptyResult").removeClass("idCheck1");
+		$(".emptyResult").html('');
+		$(".empty").each(function() {
+			var data = $(this).val();
+			if(data==''){
+				emptyCheckResult=false;
+				$(this).next().html("필수 항목입니다");
+				$(".emptyResult").addClass("idCheck1");
+			}
+		});
+	}
+	
 	
 	//**********  pw check   **********
 	$("#pw2").blur(function() {
