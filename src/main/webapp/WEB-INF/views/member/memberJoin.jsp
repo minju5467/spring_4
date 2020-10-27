@@ -7,6 +7,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<style type="text/css">
+	.idCheck0 {
+		color: blue;
+	}
+	
+	.idCheck1 {
+		color: red;
+	}
+</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -16,7 +25,7 @@
 	    <div class="form-group">
 	      <label for="id">Id:</label>
 	      <input type="text" class="form-control" id="id" placeholder="Enter Id" name="id">
-	      <div id="idResult">이미 사용중인 ID</div>
+	      <div id="idResult"></div>
 	    </div>
 	    <div class="form-group">
 	      <label for="pw">Password:</label>
@@ -41,5 +50,29 @@
 	    <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
+
+<script type="text/javascript">
+	$("#id").blur(function() {
+		var id = $(this).val();
+
+		$.get("./memberIdCheck?id="+id,function(data){
+			//a 사용가능, b 사용불가
+			//true 사용가능 false 사용불가
+			//0 사용가능 	1 사용불가
+			data=data.trim();
+			var str = "중복된 ID 입니다";
+			$("#idResult").addClass("idCheck1");
+			if(data==0){
+				str = "사용 가능한 ID 입니다"
+				$("#idResult").removeClass("idCheck1").addClass("idCheck0");
+			}
+			$("#idResult").html(str);
+			
+		});
+		
+		
+	});
+</script>
+
 </body>
 </html>

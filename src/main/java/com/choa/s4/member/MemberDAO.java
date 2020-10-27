@@ -2,6 +2,9 @@ package com.choa.s4.member;
 
 public interface MemberDAO {
 	
+	//idCheck
+	public MemberDTO getMemberIdCheck(MemberDTO memberDTO)throws Exception;
+
 	//join
 	public int setMemberJoin(MemberDTO memberDTO)throws Exception;
 	
