@@ -27,7 +27,12 @@
      <div class="form-group">
       <label for="contents">Contents:</label>
       <textarea class="form-control" rows="10" id="contents" name="contents"></textarea>
-    </div>	
+    </div>
+    
+    <div class="form-group">
+      <label for="files">file:</label>
+      <input type="file" class="form-control" id="file" name="files">
+    </div> 	
  
  
     <input type="button" class="btn btn-primary" value="Write" id="btn">

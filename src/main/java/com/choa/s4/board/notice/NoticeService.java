@@ -17,7 +17,9 @@ public class NoticeService implements BoardService {
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return noticeDAO.setInsert(boardDTO);
+		
+		
+		return 0;//noticeDAO.setInsert(boardDTO);
 	}
 
 	@Override

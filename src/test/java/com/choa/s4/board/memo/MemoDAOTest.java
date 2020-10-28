@@ -12,10 +12,10 @@ import com.choa.s4.util.Pager;
 
 public class MemoDAOTest extends MyTestCase {
 
-	@Autowired
+	//@Autowired
 	private MemoDAO memoDAO;
 	
-	@Test
+	//@Test
 	public void getListTest()throws Exception{
 		Pager pager = new Pager();
 		pager.makeRow();
