@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.choa.s4.board.BoardDTO;
@@ -38,7 +39,12 @@ public class NoticeController {
 	}
 	
 	@PostMapping("noticeWrite")
-	public ModelAndView setInsert(BoardDTO boardDTO)throws Exception{
+	public ModelAndView setInsert(BoardDTO boardDTO, MultipartFile [] files)throws Exception{
+		
+		for(int i=0;i<files.length;i++) {
+			System.out.println(files[i].getOriginalFilename());
+		}
+		
 		ModelAndView mv = new ModelAndView();
 		int result = noticeService.setInsert(boardDTO);
 		String message="Write Fail";

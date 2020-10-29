@@ -63,6 +63,13 @@
 </div>
 <script type="text/javascript">
 	var count=0;
+	
+
+	$("#files").on("click", ".del", function() {
+		$(this).parent().remove();
+		count--;
+	});
+	
 
 	$("#fileAdd").click(function() {
 		
