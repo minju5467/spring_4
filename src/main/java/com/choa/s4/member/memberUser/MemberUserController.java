@@ -99,11 +99,11 @@ public class MemberUserController {
 	}
 	
 	@GetMapping("memberPage")
-	public ModelAndView getMemberPage(HttpSession session)throws Exception{
+	public ModelAndView getMemberPage()throws Exception{
 		ModelAndView mv = new ModelAndView();
-		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
-		MemberFileDTO memberFileDTO = memberUserService.getOne(memberDTO);
-		mv.addObject("file", memberFileDTO);
+//		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+//		MemberFileDTO memberFileDTO = memberUserService.getOne(memberDTO);
+//		mv.addObject("file", memberFileDTO);
 		mv.setViewName("member/memberPage");
 		return mv;
 	}
@@ -132,6 +132,8 @@ public class MemberUserController {
 	@PostMapping("memberLogin")
 	public ModelAndView getMemberLogin(MemberDTO memberDTO, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
+		System.out.println(memberDTO.getId());
+		System.out.println(memberDTO.getPw());
 		memberDTO = memberUserService.getMemberLogin(memberDTO);
 		
 		if(memberDTO != null) {
