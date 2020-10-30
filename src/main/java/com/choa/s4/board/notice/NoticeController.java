@@ -2,6 +2,8 @@ package com.choa.s4.board.notice;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,14 +41,14 @@ public class NoticeController {
 	}
 	
 	@PostMapping("noticeWrite")
-	public ModelAndView setInsert(BoardDTO boardDTO, MultipartFile [] files)throws Exception{
+	public ModelAndView setInsert(BoardDTO boardDTO, MultipartFile [] files, HttpSession session)throws Exception{
 		
 		for(int i=0;i<files.length;i++) {
 			System.out.println(files[i].getOriginalFilename());
 		}
 		
 		ModelAndView mv = new ModelAndView();
-		int result = noticeService.setInsert(boardDTO);
+		int result = noticeService.setInsert(boardDTO, files, session);
 		String message="Write Fail";
 		if(result>0) {
 			message ="Write Success";

@@ -9,12 +9,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.choa.s4.MyTestCase;
 import com.choa.s4.board.BoardDTO;
+import com.choa.s4.board.file.BoardFileDTO;
 import com.choa.s4.util.Pager;
 
 public class NoticeDAOTest extends MyTestCase {
 
 	@Autowired
 	private NoticeDAO noticeDAO;
+	
+	@Test
+	public void setInsertFileTest()throws Exception{
+		BoardFileDTO boardFileDTO = new BoardFileDTO();
+		boardFileDTO.setNum(144);
+		boardFileDTO.setFileName("ttt");
+		boardFileDTO.setOriName("000");
+		int result = noticeDAO.setInsertFile(boardFileDTO);
+		assertEquals(1, result);
+	}
 	
 	//@Test
 	public void getListTest() throws Exception{

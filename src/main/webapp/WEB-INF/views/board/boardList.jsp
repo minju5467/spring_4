@@ -83,7 +83,7 @@
   	</c:if>
   </div>
   
-
+	<a href="./${board}Write" class="btn btn-danger">Write</a>
 
 	<c:choose>
 	  <c:when test="${board eq 'notice'}">
