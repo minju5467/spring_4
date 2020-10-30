@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.choa.s4.board.BoardDTO;
+import com.choa.s4.board.file.BoardFileDTO;
 import com.choa.s4.util.Pager;
 
 @Controller
@@ -21,6 +22,16 @@ public class QnaController {
 	
 	@Autowired
 	private QnaService qnaService;
+	
+	@GetMapping("fileDown")
+	public ModelAndView fileDown(BoardFileDTO boardFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("board", "qna");
+		mv.addObject("fileDTO", boardFileDTO);
+		mv.setViewName("fileDown");
+		return mv;
+	}
 	
 	@PostMapping("qnaReply")
 	public ModelAndView setReply(BoardDTO boardDTO)throws Exception{
