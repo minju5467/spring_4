@@ -56,7 +56,7 @@ public class NoticeService implements BoardService {
 		
 		
 		
-		return 0;
+		return result;
 	}
 
 	@Override

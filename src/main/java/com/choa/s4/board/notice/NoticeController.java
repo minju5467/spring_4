@@ -25,7 +25,6 @@ public class NoticeController {
 	public ModelAndView getOne(BoardDTO boardDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		boardDTO = noticeService.getOne(boardDTO);
-		
 		if(boardDTO != null) {
 			mv.setViewName("board/boardSelect");
 			mv.addObject("dto", boardDTO);
