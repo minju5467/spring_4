@@ -2,8 +2,11 @@ package com.choa.s4.board.notice;
 
 import java.util.List;
 
+import javax.inject.Named;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.choa.s4.board.BoardDAO;

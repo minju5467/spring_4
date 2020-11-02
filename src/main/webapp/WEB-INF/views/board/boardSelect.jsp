@@ -35,7 +35,7 @@
 <script type="text/javascript">
 	//$("css선택자").action();
 	$("#update").click(function() {
-		location.href="./noticeUpdate?num=${dto.num}";
+		location.href="./${board}Update?num=${dto.num}";
 	});
 	
 	$("#del").click(function() {
