@@ -68,6 +68,8 @@
 </div>
 <script type="text/javascript">
 	var count=0;
+	
+	
 	 $('#contents').summernote({
 		 height:300,
 		 callbacks:{
