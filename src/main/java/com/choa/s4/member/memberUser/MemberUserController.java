@@ -140,11 +140,9 @@ public class MemberUserController {
 		//쿠키의 이름 remember, 밸류는 로그인 시 ID
 		if(remember != null) {
 			Cookie cookie= new Cookie("remember", memberDTO.getId());
-			cookie.setDomain("/member/memberLogin");
 			response.addCookie(cookie);
 		}else {
 			Cookie cookie = new Cookie("remember", "");
-			cookie.setDomain("/member/memberLogin");
 			cookie.setMaxAge(0);
 			response.addCookie(cookie);
 		}
